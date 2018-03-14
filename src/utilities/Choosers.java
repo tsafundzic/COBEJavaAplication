@@ -103,11 +103,11 @@ public class Choosers {
         int index = 1;
 
         for (Product product : products) {
-            System.out.println(" " + index + ". " + product.getProductName() + " \t" + product.getProductPrice());
+            System.out.println(" " + product.getProductID() + ". " + product.getProductName() + " \t" + product.getProductPrice());
             index++;
         }
 
-        int inputvalue = menuSelector(index - 1);
+        int inputvalue = menuSelector(index );
 
         for (Product product : products) {
             if (product.getProductID() == (inputvalue)) {

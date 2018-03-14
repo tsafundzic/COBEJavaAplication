@@ -71,7 +71,15 @@ public class Worker extends Person {
         double inputprice = 0;
         Product product = new Product();
 
-        int productID = products.size() + 1;
+        int max = products.size();
+        for (Product product1 : products) {
+            if (product1.getProductID() > max) {
+                max = product1.getProductID();
+            }
+        }
+
+        int productID = max + 1;
+
         System.out.println("ID novog proizvoda " + productID);
         product.setProductID(productID);
 
@@ -115,7 +123,7 @@ public class Worker extends Person {
         worker.setPassword(inputword);
 
         workers.add(worker);
-        System.out.println("Dodan novi radnik: \n\tID:" + worker.getId() + "\n\tIme: " + worker.getName() + "\n\tPrezime: " + worker.getSurname() + "\n\tLozinka: " + worker.getPassword());
+        System.out.println("Dodan novi radnik: \n\tID:" + worker.getId() + "\n\tIme: " + worker.getName() + "\n\tPrezime: " + worker.getSurname() + "\n\tLozinka: " + worker.getPassword() + "\n");
         homeScreen();
     }
 
