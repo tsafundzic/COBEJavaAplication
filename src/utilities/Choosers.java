@@ -107,7 +107,7 @@ public class Choosers {
             index++;
         }
 
-        int inputvalue = menuSelector(index );
+        int inputvalue = menuSelector(index - 1);
 
         for (Product product : products) {
             if (product.getProductID() == (inputvalue)) {
