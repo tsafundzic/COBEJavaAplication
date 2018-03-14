@@ -1,8 +1,12 @@
 package model;
 
+import utilities.Choosers;
+
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
+
+import static utilities.Choosers.workerFirstChooser;
 
 public class Worker extends Person {
     private String password;
@@ -20,7 +24,7 @@ public class Worker extends Person {
         this.password = password;
     }
 
-    public int checkIfInputisInt(List<Product> products) {
+    public static int checkIfInputisInt(List<Product> products) {
         Scanner scanner = new Scanner(System.in);
         int inputvalue;
         do {
@@ -36,7 +40,7 @@ public class Worker extends Person {
         return inputvalue;
     }
 
-    public void deleteProduct(List<Product> products) {
+    public static void deleteProduct(List<Product> products) {
         String inputID;
         Scanner scanner = new Scanner(System.in);
 
@@ -54,18 +58,16 @@ public class Worker extends Person {
         //printProducts(products);
     }
 
-    public void addNewProduct(List<Product> products) {
+    public static void addNewProduct(List<Product> products) {
         Scanner scanner = new Scanner(System.in);
         String inputword;
         int inputvalue;
         double inputprice = 0;
         Product product = new Product();
 
-        System.out.println("Unesi ID novog proizvoda");
-
-        inputvalue = checkIfInputisInt(products);
-
-        product.setProductID(inputvalue);
+        int productID = products.size() + 1;
+        System.out.println("ID novog proizvoda " + productID);
+        product.setProductID(productID);
 
         System.out.println("Unesi naziv novog proizvoda");
         inputword = scanner.nextLine();
@@ -73,18 +75,16 @@ public class Worker extends Person {
 
         System.out.println("Unesi cijenu novog proizvoda");
 
-        do {
-            while (!scanner.hasNextDouble()) {
-                System.out.println("Pogrešan unos!");
-                scanner.next();
-            }
-            inputvalue = scanner.nextInt();
-            if (inputvalue < 1 || inputvalue > products.size()) {
-                System.out.println("Pogrešan unos!");
-            }
-        } while (inputvalue < 1 || inputvalue > products.size());
-
+        while (!scanner.hasNextDouble()) {
+            System.out.println("Pogrešan unos!");
+            scanner.next();
+        }
+        inputprice = scanner.nextDouble();
         product.setProductPrice(inputprice);
+        System.out.println("Proizvod uspješno dodan! \n\tID: " + product.getProductID() + "\n\tNaziv: " + product.getProductName() + "\n\tCijena: " + product.getProductPrice() + "\n");
+        products.add(product);
+
+        workerFirstChooser();
     }
 
     public static void workerLogin(List<Worker> workers) {
@@ -100,6 +100,10 @@ public class Worker extends Person {
             scanner.next();
         }
         inputvalue = scanner.nextInt();
+        while (inputvalue > workers.size()) {
+            System.out.println("Pogrešan id");
+            inputvalue = scanner.nextInt();
+        }
 
         for (Worker worker : workers) {
             if (inputvalue == worker.getId()) {
@@ -107,14 +111,14 @@ public class Worker extends Person {
                 inputdata = scannerPass.nextLine();
                 if (inputdata.equals(worker.getPassword())) {
                     System.out.println("Uspješno logiranje!");
-                    //workerProductInterface(products);
+                    workerFirstChooser();
                 } else {
                     System.out.println("Pogrešna lozinka");
-                    //userInterface();
+                    Choosers.homeScreen();
                 }
             }
         }
-
-
     }
+
+
 }
