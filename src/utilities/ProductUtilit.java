@@ -22,15 +22,15 @@ public class ProductUtilit {
     public static List<Worker> createWorkers() {
         List<Worker> workers = new ArrayList<>();
 
-        workers.add(new Worker(1, "Dragan", "Dragic", "123"));
-        workers.add(new Worker(2, "Joško", "Lokas", "123"));
+        workers.add(new Worker(1, "Dragan", "Dragic", "123", 2222));
+        workers.add(new Worker(2, "Joško", "Lokas", "123",5564));
 
         return workers;
     }
 
     public static List<Customer> createCustomers() {
         List<Customer> customers = new ArrayList<>();
-        customers.add(new Customer(1,"Franjo", "Lucić", 56));
+        customers.add(new Customer(1,"Franjo", "Lucić", "123", 500));
         return customers;
     }
 }

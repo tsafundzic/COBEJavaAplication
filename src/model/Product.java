@@ -1,5 +1,7 @@
 package model;
 
+import java.util.List;
+
 public class Product {
 
     private int productID;
@@ -40,4 +42,13 @@ public class Product {
     public void setProductPrice(double productPrice) {
         this.productPrice = productPrice;
     }
+
+    public static void showProducts(List<Product> products) {
+
+        for (Product product : products) {
+            System.out.println(" " + product.getProductID() + ". " + product.getProductName());
+        }
+    }
+
+
 }

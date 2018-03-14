@@ -4,21 +4,24 @@ public class Person {
     private int id;
     private String name;
     private String surname;
+    private String password;
 
-    public Person(int id, String name, String surname) {
+    public Person(int id, String name, String surname, String password) {
         this.id = id;
         this.name = name;
         this.surname = surname;
-    }
-    public Person() {
+        this.password = password;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Person() {
     }
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -35,5 +38,13 @@ public class Person {
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

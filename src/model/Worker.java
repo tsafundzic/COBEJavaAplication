@@ -2,6 +2,7 @@ package model;
 
 import utilities.Choosers;
 
+import java.util.InputMismatchException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
@@ -10,24 +11,23 @@ import static utilities.Choosers.homeScreen;
 import static utilities.Choosers.workerFirstChooser;
 
 public class Worker extends Person {
-    private String password;
+    private double salary;
 
-    public Worker(int id, String name, String surname, String password) {
-        super(id, name, surname);
-        this.password = password;
+    public Worker(int id, String name, String surname, String password, double salary) {
+        super(id, name, surname, password);
+        this.salary = salary;
     }
 
     public Worker() {
 
     }
 
-
-    public String getPassword() {
-        return password;
+    public double getSalary() {
+        return salary;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setSalary(double salary) {
+        this.salary = salary;
     }
 
     public static int checkIfInputisInt(List<Product> products) {
@@ -47,21 +47,21 @@ public class Worker extends Person {
     }
 
     public static void deleteProduct(List<Product> products) {
-        String inputID;
+        int inputID;
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Odaberi ID proizvoda kojeg želiš obrisati");
-        //printProducts(products);
-        inputID = scanner.nextLine();
+        Product.showProducts(products);
+        inputID = checkIfInputisInt(products);
 
-        for (Iterator<Product> iterator = products.listIterator(); iterator.hasNext(); ) {
-            Product product = iterator.next();
-            if (inputID.equals(product.getProductID())) {
-                iterator.remove();
+        for (Product product : products) {
+            if (inputID == product.getProductID()) {
+                products.remove(product);
+                System.out.println("Proizvod obrisan!");
             }
         }
-        System.out.println("Prozivod obrisan!");
-        //printProducts(products);
+        Product.showProducts(products);
+        workerFirstChooser();
     }
 
     public static void addNewProduct(List<Product> products) {
@@ -133,7 +133,7 @@ public class Worker extends Person {
         }
         inputvalue = scanner.nextInt();
         while (inputvalue > workers.size()) {
-            System.out.println("Pogrešan id");
+            System.out.println("Pogrešan ID");
             inputvalue = scanner.nextInt();
         }
 
@@ -146,6 +146,7 @@ public class Worker extends Person {
                     workerFirstChooser();
                 } else {
                     System.out.println("Pogrešna lozinka");
+
                     Choosers.homeScreen();
                 }
             }
