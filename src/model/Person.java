@@ -1,7 +1,7 @@
 package model;
 
 public class Person {
-    private final int id;
+    private int id;
     private String name;
     private String surname;
 
@@ -9,6 +9,12 @@ public class Person {
         this.id = id;
         this.name = name;
         this.surname = surname;
+    }
+    public Person() {
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getId() {

@@ -1,20 +1,21 @@
 package utilities;
 
+import model.Customer;
 import model.Product;
 import model.Worker;
 
 import java.util.List;
 import java.util.Scanner;
 
-import static model.Worker.addNewProduct;
-import static model.Worker.deleteProduct;
-import static model.Worker.workerLogin;
+import static model.Customer.customerFirst;
+import static model.Worker.*;
 
 public class Choosers {
 
 
     static List<Product> products = ProductUtilit.createProducts();
     static List<Worker> workers = ProductUtilit.createWorkers();
+    static List<Customer> customers = ProductUtilit.createCustomers();
 
     private static int menuSelector(int numberOfItems) {
 
@@ -40,7 +41,7 @@ public class Choosers {
         int value = menuSelector(2);
         switch (value) {
             case 1:
-                System.out.println("jedan!");
+                customerFirst();
                 break;
             case 2:
                 workerLogin(workers);
@@ -51,8 +52,8 @@ public class Choosers {
     }
 
     public static void workerFirstChooser() {
-        System.out.println("Odaberi: \n 1. Povratak na početni zaslon \n 2. Dodavanje novog proizvoda \n 3. Brisanje proizvoda");
-        int value = menuSelector(3);
+        System.out.println("Odaberi: \n 1. Povratak na početni zaslon \n 2. Dodavanje novog proizvoda \n 3. Brisanje proizvoda \n 4. Dodavanje novog radnika");
+        int value = menuSelector(4);
         switch (value) {
             case 1:
                 homeScreen();
@@ -63,6 +64,8 @@ public class Choosers {
             case 3:
                 deleteProduct(products);
                 break;
+            case 4:
+                addNewWorker(workers);
             default:
                 System.out.println("Pogrešan unos");
         }

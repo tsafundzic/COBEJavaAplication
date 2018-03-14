@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
+import static utilities.Choosers.homeScreen;
 import static utilities.Choosers.workerFirstChooser;
 
 public class Worker extends Person {
@@ -15,6 +16,11 @@ public class Worker extends Person {
         super(id, name, surname);
         this.password = password;
     }
+
+    public Worker() {
+
+    }
+
 
     public String getPassword() {
         return password;
@@ -85,6 +91,32 @@ public class Worker extends Person {
         products.add(product);
 
         workerFirstChooser();
+    }
+
+    public static void addNewWorker(List<Worker> workers) {
+        Scanner scanner = new Scanner(System.in);
+        String inputword;
+        Worker worker = new Worker();
+
+        int workerID = workers.size() + 1;
+        System.out.println("ID novog radnika: " + workerID);
+        worker.setId(workerID);
+
+        System.out.println("Unesi ime: ");
+        inputword = scanner.nextLine();
+        worker.setName(inputword);
+
+        System.out.println("Unesi prezime");
+        inputword = scanner.nextLine();
+        worker.setSurname(inputword);
+
+        System.out.println("Unesi lozinku:");
+        inputword = scanner.nextLine();
+        worker.setPassword(inputword);
+
+        workers.add(worker);
+        System.out.println("Dodan novi radnik: \n\tID:" + worker.getId() + "\n\tIme: " + worker.getName() + "\n\tPrezime: " + worker.getSurname() + "\n\tLozinka: " + worker.getPassword());
+        homeScreen();
     }
 
     public static void workerLogin(List<Worker> workers) {

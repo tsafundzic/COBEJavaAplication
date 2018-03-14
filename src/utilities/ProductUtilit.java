@@ -1,5 +1,6 @@
 package utilities;
 
+import model.Customer;
 import model.Product;
 import model.Worker;
 
@@ -25,5 +26,11 @@ public class ProductUtilit {
         workers.add(new Worker(2, "Joško", "Lokas", "123"));
 
         return workers;
+    }
+
+    public static List<Customer> createCustomers() {
+        List<Customer> customers = new ArrayList<>();
+        customers.add(new Customer(1,"Franjo", "Lucić", 56));
+        return customers;
     }
 }

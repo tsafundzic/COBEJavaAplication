@@ -15,4 +15,8 @@ public class Customer extends Person {
     public void setBalance(double balance) {
         this.balance = balance;
     }
+
+    public static void customerFirst(){
+
+    }
 }
