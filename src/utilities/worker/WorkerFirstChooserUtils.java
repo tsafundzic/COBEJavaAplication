@@ -11,21 +11,21 @@ import java.util.List;
 
 public class WorkerFirstChooserUtils {
 
-    public static void workerFirstChooser(List<Worker> workers, Worker worker, List<Product> products) {
+    public static void workerFirstChooser() {
         System.out.println("Odaberi: \n 1. Povratak na početni zaslon \n 2. Dodavanje novog proizvoda \n 3. Brisanje proizvoda \n 4. Dodavanje novog radnika");
-        int inputvalue = MenuSelectorUtils.menuSelector(4);
-        switch (inputvalue) {
+        int inputValue = MenuSelectorUtils.menuSelector(4);
+        switch (inputValue) {
             case 1:
                 ShowHomeScreenUtils.showHomeScreen();
                 break;
             case 2:
-                AddNewProductUtils.addNewProduct(products, workers, worker);
+                AddNewProductUtils.addNewProduct();
                 break;
             case 3:
-                DeleteProductUtils.deleteProduct(products, workers, worker);
+                DeleteProductUtils.deleteProduct();
                 break;
             case 4:
-                CreateWorkerUtils.addNewWorker(workers);
+                CreateWorkerUtils.addNewWorker(); //todo return the new worker and add it to the data holder
                 break;
             default:
                 System.out.println("Pogrešan unos");

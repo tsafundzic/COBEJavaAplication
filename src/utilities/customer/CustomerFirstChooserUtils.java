@@ -1,5 +1,6 @@
 package utilities.customer;
 
+import data.DataHolder;
 import model.Customer;
 import model.Product;
 import utilities.PrintUtils;
@@ -11,7 +12,7 @@ import java.util.List;
 
 public class CustomerFirstChooserUtils {
 
-    public static void customerFirstChooser(List<Customer> customers, Customer customer, List<Product> products) {
+    public static void customerFirstChooser() {
         System.out.println("Odaberi: \n 1. Povratak na početni zaslon \n 2. Provjera stanja računa \n 3. Uplata na račun \n 4. Kupnja proizovda \n 5. Kreiranje novog računa");
         int inputvalue = MenuSelectorUtils.menuSelector(5);
         switch (inputvalue) {
@@ -19,16 +20,19 @@ public class CustomerFirstChooserUtils {
                 ShowHomeScreenUtils.showHomeScreen();
                 break;
             case 2:
-                CheckBalanceUtils.checkBalance(customers, customer, products);
+                CheckBalanceUtils.checkBalance();
                 break;
             case 3:
-                AddMoneyUtils.addMoney(customers, customer, products);
+                AddMoneyUtils.addMoney();
                 break;
             case 4:
-                PrintUtils.showAvailableProducts(customers, products, customer);
+                PrintUtils.showAvailableProducts();
                 break;
             case 5:
-                CreateCustomerUtils.createNewCustomer(customers);
+                Customer customer = CreateCustomerUtils.createNewCustomer();
+
+                DataHolder.getInstance().addNewCustomer(customer);
+
                 break;
             default:
                 System.out.println("Pogrešan unos");

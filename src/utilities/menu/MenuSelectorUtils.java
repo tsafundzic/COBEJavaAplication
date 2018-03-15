@@ -4,10 +4,11 @@ import java.util.Scanner;
 
 
 public class MenuSelectorUtils {
+
     public static int menuSelector(int numberOfItems) {
 
         Scanner scanner = new Scanner(System.in);
-        int inputvalue;
+        int inputvalue; //todo sve prodji sunce ti jebem
         int numOfTry = 0;
 
         do {

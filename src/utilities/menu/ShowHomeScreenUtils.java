@@ -15,24 +15,19 @@ import java.util.List;
 import static utilities.menu.MenuSelectorUtils.menuSelector;
 
 public class ShowHomeScreenUtils {
-    private static List<Product> products = ProductUtils.createProducts();
-    private static List<Worker> workers = ProductUtils.createWorkers();
-    private static List<Customer> customers = ProductUtils.createCustomers();
-    private static List<ProductAmount> productAmounts = new ArrayList<>();
-
     public static void showHomeScreen() {
         System.out.println("Odaberi: \n 1. Postojeći kupac \n 2. Novi kupac \n 3. Radnik");
         int value = menuSelector(3);
 
         switch (value) {
             case 1:
-                CustomerLoginUtils.customerLogin(customers, products);
+                CustomerLoginUtils.customerLogin();
                 break;
             case 2:
-                CreateCustomerUtils.createNewCustomer(customers);
+                CreateCustomerUtils.createNewCustomer();
                 break;
             case 3:
-                WorkerLoginUtils.workerLogin(workers, products);
+                WorkerLoginUtils.workerLogin();
                 break;
             default:
                 System.out.println("Pogrešan unos");

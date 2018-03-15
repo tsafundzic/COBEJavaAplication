@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class CreateWorkerUtils {
 
-    public static void addNewWorker(List<Worker> workers) {
+    public static void addNewWorker() {
         Scanner scanner = new Scanner(System.in);
         String inputName;
         String inputSurname;
@@ -29,12 +29,16 @@ public class CreateWorkerUtils {
         inputPassword = scanner.nextLine();
 
         System.out.println("Unesi plaću:");
+        while (!scanner.hasNextDouble()) {
+            System.out.println("Pogrešan unos!");
+            scanner.next();
+        }
         inputSalary = scanner.nextDouble();
 
         Worker worker = new Worker(workerID, inputName, inputSurname, inputPassword, inputSalary);
         workers.add(worker);
 
-        System.out.println("Dodan novi radnik: \n\tID:" + worker.getId() + "\n\tIme: " + worker.getName() + "\n\tPrezime: " + worker.getSurname() + "\n\tLozinka: " + worker.getPassword() + "\n");
+        System.out.println(String.format("Dodan je novi radnik: \n\tID: %d \n\tIme: %s \n\tPrezime: %s \n\tLozinka: %s \n\tPlaća: %.2f", worker.getId(), worker.getName(), worker.getSurname(), worker.getPassword(), worker.getSalary()));
         ShowHomeScreenUtils.showHomeScreen();
     }
 }

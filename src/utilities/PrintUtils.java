@@ -1,5 +1,6 @@
 package utilities;
 
+import data.DataHolder;
 import model.Customer;
 import model.Product;
 import utilities.customer.BuyProductUtils;
@@ -9,16 +10,19 @@ import java.util.List;
 
 public class PrintUtils {
 
-    public static void showProducts(List<Product> products) {
+    public static void showProducts() {
         int index = 1;
+        List<Product> products = DataHolder.getInstance().getProducts();
+
         for (Product product : products) {
             System.out.println(" " + index + ". " + product.getProductName());
             index++;
         }
     }
 
-    public static void showAvailableProducts(List<Customer> customers, List<Product> products, Customer customer) {
+    public static void showAvailableProducts() {
         int index = 1;
+        List<Product> products = DataHolder.getInstance().getProducts();
 
         for (Product product : products) {
             System.out.println(" " + index + ". " + product.getProductName() + " \t" + product.getProductPrice());
@@ -28,6 +32,6 @@ public class PrintUtils {
         int inputvalue = MenuSelectorUtils.menuSelector(index - 1);
         Product product = products.get(inputvalue - 1);
 
-        BuyProductUtils.buyProduct(product, customer, customers, products);
+        BuyProductUtils.buyProduct(product, customer);
     }
 }

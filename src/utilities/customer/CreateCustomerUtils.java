@@ -1,5 +1,6 @@
 package utilities.customer;
 
+import data.DataHolder;
 import model.Customer;
 import utilities.menu.ShowHomeScreenUtils;
 
@@ -8,13 +9,14 @@ import java.util.Scanner;
 
 
 public class CreateCustomerUtils {
-    public static void createNewCustomer(List<Customer> customers) {
+
+    public static Customer createNewCustomer() {
         Scanner scanner = new Scanner(System.in);
         String inputName;
         String inputSurname;
         String inputPassword;
 
-        int customerID = customers.size() + 1;
+        int customerID = DataHolder.getInstance().getCustomers().size() + 1;
         System.out.println("ID novog korisnika: " + customerID);
 
         System.out.println("Unesi ime: ");
@@ -27,11 +29,10 @@ public class CreateCustomerUtils {
         inputPassword = scanner.nextLine();
 
         Customer customer = new Customer(customerID, inputName, inputSurname, inputPassword, 0);
-        customers.add(customer);
 
-        System.out.println("Dodan novi korisnik: \n\tID:" + customer.getId() + "\n\tIme: " + customer.getName() + "\n\tPrezime: " + customer.getSurname() + "\n\tLozinka: " + customer.getPassword() + "\n\tStanje računa : " + customer.getBalance());
+        System.out.println(String.format("Dodan je novi korisnik: \n\tID: %d \n\tIme: %s \n\tPrezime: %s \n\tLozinka: %s \n\tStanje računa: %.2f\n", customer.getId(), customer.getName(), customer.getSurname(), customer.getPassword(), customer.getBalance()));
         ShowHomeScreenUtils.showHomeScreen();
+
+        return customer;
     }
-
-
 }

@@ -1,5 +1,6 @@
 package utilities.customer;
 
+import data.DataHolder;
 import model.Customer;
 import model.Product;
 import utilities.menu.ShowHomeScreenUtils;
@@ -9,7 +10,10 @@ import java.util.Scanner;
 
 
 public class CustomerLoginUtils {
-    public static Customer customerLogin(List<Customer> customers, List<Product> products) {
+
+    public static Customer customerLogin(List<Product> products) {
+        List<Customer> customers = DataHolder.getInstance().getCustomers();
+
         String inputdata;
         int inputvalue;
         int numOfTry = 0;
@@ -42,7 +46,7 @@ public class CustomerLoginUtils {
                 inputdata = scannerPass.nextLine();
                 if (inputdata.equals(customer.getPassword())) {
                     System.out.println("Uspješno logiranje!\n");
-                    CustomerFirstChooserUtils.customerFirstChooser(customers, customer, products);
+                    CustomerFirstChooserUtils.customerFirstChooser();
                 } else {
                     System.out.println("Pogrešna lozinka");
                     ShowHomeScreenUtils.showHomeScreen();
