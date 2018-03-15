@@ -1,4 +1,4 @@
-package utilities;
+package utilities.product;
 
 import model.Customer;
 import model.Product;
@@ -7,7 +7,8 @@ import model.Worker;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductUtilit {
+public class ProductUtils {
+
     public static List<Product> createProducts() {
         List<Product> products = new ArrayList<>();
 
