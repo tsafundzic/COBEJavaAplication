@@ -1,6 +1,7 @@
 package utilities.product;
 
 import model.Product;
+import model.Worker;
 import utilities.CheckIfInputIsIntUtils;
 import utilities.PrintUtils;
 import utilities.worker.WorkerFirstChooserUtils;
@@ -10,7 +11,7 @@ import java.util.Scanner;
 
 
 public class DeleteProductUtils {
-    public static void deleteProduct(List<Product> products) {
+    public static void deleteProduct(List<Product> products, List<Worker> workers, Worker worker) {
         int inputID;
         Scanner scanner = new Scanner(System.in);
 
@@ -23,7 +24,6 @@ public class DeleteProductUtils {
         System.out.println("Proizvod obrisan!");
 
         PrintUtils.showProducts(products);
-        UpdateProductListUtils.updateProductsList(products);
-        WorkerFirstChooserUtils.workerFirstChooser();
+        WorkerFirstChooserUtils.workerFirstChooser(workers, worker, products);
     }
 }

@@ -10,10 +10,8 @@ import utilities.menu.ShowHomeScreenUtils;
 import java.util.List;
 
 public class CustomerFirstChooserUtils {
-    private static List<Product> products = ProductUtils.createProducts();
-    private static List<Customer> customers = ProductUtils.createCustomers();
 
-    public static void customerFirstChooser(Customer customer) {
+    public static void customerFirstChooser(List<Customer> customers, Customer customer, List<Product> products) {
         System.out.println("Odaberi: \n 1. Povratak na početni zaslon \n 2. Provjera stanja računa \n 3. Uplata na račun \n 4. Kupnja proizovda \n 5. Kreiranje novog računa");
         int inputvalue = MenuSelectorUtils.menuSelector(5);
         switch (inputvalue) {
@@ -21,13 +19,13 @@ public class CustomerFirstChooserUtils {
                 ShowHomeScreenUtils.showHomeScreen();
                 break;
             case 2:
-                CheckBalanceUtils.checkBalance(customer);
+                CheckBalanceUtils.checkBalance(customers, customer, products);
                 break;
             case 3:
-                AddMoneyUtils.addMoney(customer);
+                AddMoneyUtils.addMoney(customers, customer, products);
                 break;
             case 4:
-                PrintUtils.showAvailableProducts(products, customer);
+                PrintUtils.showAvailableProducts(customers, products, customer);
                 break;
             case 5:
                 CreateCustomerUtils.createNewCustomer(customers);

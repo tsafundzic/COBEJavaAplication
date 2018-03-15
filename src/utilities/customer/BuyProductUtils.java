@@ -3,11 +3,11 @@ package utilities.customer;
 import model.Customer;
 import model.Product;
 
+import java.util.List;
 import java.util.Scanner;
 
-
 public class BuyProductUtils {
-    public static void buyProduct(Product product, Customer customer) {
+    public static void buyProduct(Product product, Customer customer, List<Customer> customers, List<Product> products) {
         Scanner scanner = new Scanner(System.in);
         int inputvalue;
 
@@ -27,10 +27,10 @@ public class BuyProductUtils {
             customer.setBalance(newBalance);
             System.out.println(product.getProductName() + " " + product.getProductID() + customer.getName());
             System.out.println(" \nKupnja uspješno obavljena! \n \t" + product.getProductName() + " \t" + product.getProductPrice() + "\t" + inputvalue + "\t" + productPrice + "\n\tNovo stanje na računu: " + customer.getBalance() + " \n");
-            CustomerFirstChooserUtils.customerFirstChooser(customer);
+            CustomerFirstChooserUtils.customerFirstChooser(customers, customer, products);
         } else {
             System.out.println("Nedovoljno sredstava na računu!\n");
-            CustomerFirstChooserUtils.customerFirstChooser(customer);
+            CustomerFirstChooserUtils.customerFirstChooser(customers, customer, products);
         }
     }
 }

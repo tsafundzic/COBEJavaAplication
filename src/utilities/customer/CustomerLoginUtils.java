@@ -1,7 +1,7 @@
 package utilities.customer;
 
 import model.Customer;
-import utilities.Choosers;
+import model.Product;
 import utilities.menu.ShowHomeScreenUtils;
 
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 
 public class CustomerLoginUtils {
-    public static Customer customerLogin(List<Customer> customers) {
+    public static Customer customerLogin(List<Customer> customers, List<Product> products) {
         String inputdata;
         int inputvalue;
         int numOfTry = 0;
@@ -42,7 +42,7 @@ public class CustomerLoginUtils {
                 inputdata = scannerPass.nextLine();
                 if (inputdata.equals(customer.getPassword())) {
                     System.out.println("Uspješno logiranje!\n");
-                    CustomerFirstChooserUtils.customerFirstChooser(customer);
+                    CustomerFirstChooserUtils.customerFirstChooser(customers, customer, products);
                 } else {
                     System.out.println("Pogrešna lozinka");
                     ShowHomeScreenUtils.showHomeScreen();

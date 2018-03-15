@@ -1,13 +1,14 @@
 package utilities.product;
 
 import model.Product;
+import model.Worker;
 import utilities.worker.WorkerFirstChooserUtils;
 
 import java.util.List;
 import java.util.Scanner;
 
 public class AddNewProductUtils {
-    public static void addNewProduct(List<Product> products) {
+    public static void addNewProduct(List<Product> products, List<Worker> workers, Worker worker) {
         Scanner scanner = new Scanner(System.in);
         String inputword;
         int inputvalue;
@@ -42,6 +43,6 @@ public class AddNewProductUtils {
         System.out.println("Proizvod uspješno dodan! \n\tID: " + product.getProductID() + "\n\tNaziv: " + product.getProductName() + "\n\tCijena: " + product.getProductPrice() + "\n");
         products.add(product);
 
-        WorkerFirstChooserUtils.workerFirstChooser();
+        WorkerFirstChooserUtils.workerFirstChooser(workers, worker, products);
     }
 }

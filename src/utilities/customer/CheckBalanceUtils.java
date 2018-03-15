@@ -1,11 +1,13 @@
 package utilities.customer;
 
 import model.Customer;
-import utilities.Choosers;
+import model.Product;
+
+import java.util.List;
 
 public class CheckBalanceUtils {
-    public static void checkBalance(Customer customer) {
+    public static void checkBalance(List<Customer> customers, Customer customer,  List<Product> products) {
         System.out.println("\nTrenutno na računu " + customer.getBalance() + "\n");
-        CustomerFirstChooserUtils.customerFirstChooser(customer);
+        CustomerFirstChooserUtils.customerFirstChooser(customers, customer, products);
     }
 }

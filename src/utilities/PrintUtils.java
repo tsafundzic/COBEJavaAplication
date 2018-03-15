@@ -17,7 +17,7 @@ public class PrintUtils {
         }
     }
 
-    public static void showAvailableProducts(List<Product> products, Customer customer) {
+    public static void showAvailableProducts(List<Customer> customers, List<Product> products, Customer customer) {
         int index = 1;
 
         for (Product product : products) {
@@ -28,6 +28,6 @@ public class PrintUtils {
         int inputvalue = MenuSelectorUtils.menuSelector(index - 1);
         Product product = products.get(inputvalue - 1);
 
-        BuyProductUtils.buyProduct(product, customer);
+        BuyProductUtils.buyProduct(product, customer, customers, products);
     }
 }
