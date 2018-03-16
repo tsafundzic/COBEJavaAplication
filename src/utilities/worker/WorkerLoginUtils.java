@@ -1,6 +1,6 @@
 package utilities.worker;
 
-import model.Product;
+import data.DataHolder;
 import model.Worker;
 import utilities.menu.ShowHomeScreenUtils;
 
@@ -9,13 +9,13 @@ import java.util.Scanner;
 
 public class WorkerLoginUtils {
 
-    public static void workerLogin(List<Worker> workers, List<Product> products) {
+    public static void workerLogin() {
+        List<Worker> workers = DataHolder.getInstance().getWorkers();
         String inputData;
         int inputValue;
         int numberOfTry = 0;
 
         Scanner scanner = new Scanner(System.in);
-        Worker loggedWorker = workers.get(0);
 
         System.out.println("Unesi svoj ID:");
 
@@ -40,18 +40,15 @@ public class WorkerLoginUtils {
         for (Worker worker : workers) {
             if (inputValue == worker.getId()) {
                 System.out.println("Unesi lozinku: ");
-                inputData = scanner.nextLine();
-
+                inputData = scanner.next();
                 if (inputData.equals(worker.getPassword())) {
                     System.out.println("Uspješno logiranje!\n");
-                    WorkerFirstChooserUtils.workerFirstChooser(workers, worker, products);
+                    WorkerFirstChooserUtils.workerFirstChooser();
                 } else {
                     System.out.println("Pogrešna lozinka");
-
                     ShowHomeScreenUtils.showHomeScreen();
                 }
             }
-            loggedWorker = worker;
         }
     }
 }

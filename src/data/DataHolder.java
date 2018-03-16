@@ -7,7 +7,7 @@ import utilities.product.ProductUtils;
 
 import java.util.List;
 
-public class DataHolder { //todo create a database mockup
+public class DataHolder {
 
     //singleton istance
     private static final DataHolder instance = new DataHolder();

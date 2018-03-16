@@ -1,6 +1,5 @@
 package utilities.customer;
 
-import data.DataHolder;
 import model.Customer;
 import model.Product;
 import model.ProductAmount;
@@ -16,7 +15,6 @@ public class BuyProductUtils {
     static List<ProductAmount> productAmounts = new ArrayList<>();
 
     public static void buyProduct(Product product, Customer customer) {
-        List<Product> products = DataHolder.getInstance().getProducts();
         Scanner scanner = new Scanner(System.in);
         double bill = 0;
 
@@ -36,7 +34,7 @@ public class BuyProductUtils {
         int inputValue = MenuSelectorUtils.menuSelector(2);
 
         if (inputValue == 1) {
-            PrintUtils.showAvailableProducts();
+            PrintUtils.showAvailableProducts(customer);
         } else if (inputValue == 2) {
             customer.setBalance(customerBalance);
             for (ProductAmount productAmount : productAmounts) {
@@ -49,11 +47,11 @@ public class BuyProductUtils {
                 System.out.println(String.format("Ukupno %.2f \nNovo stanje: %.2f", bill, customerBalance));
                 customer.setBalance(customerBalance);
                 productAmounts.clear();
-                CustomerFirstChooserUtils.customerFirstChooser();
+                CustomerFirstChooserUtils.customerFirstChooser(customer);
             } else {
                 System.out.println("Nedovoljno sredstava na računu!\n");
                 productAmounts.clear();
-                CustomerFirstChooserUtils.customerFirstChooser();
+                CustomerFirstChooserUtils.customerFirstChooser(customer);
             }
         }
     }

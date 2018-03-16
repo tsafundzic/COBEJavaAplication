@@ -1,16 +1,8 @@
 package utilities.menu;
 
-import model.Customer;
-import model.Product;
-import model.ProductAmount;
-import model.Worker;
-import utilities.product.ProductUtils;
 import utilities.customer.CreateCustomerUtils;
 import utilities.customer.CustomerLoginUtils;
 import utilities.worker.WorkerLoginUtils;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static utilities.menu.MenuSelectorUtils.menuSelector;
 

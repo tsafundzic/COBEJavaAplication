@@ -1,13 +1,9 @@
 package utilities.worker;
 
-import model.Product;
-import model.Worker;
 import utilities.menu.MenuSelectorUtils;
 import utilities.menu.ShowHomeScreenUtils;
 import utilities.product.AddNewProductUtils;
 import utilities.product.DeleteProductUtils;
-
-import java.util.List;
 
 public class WorkerFirstChooserUtils {
 

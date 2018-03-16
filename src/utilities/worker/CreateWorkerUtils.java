@@ -1,5 +1,6 @@
 package utilities.worker;
 
+import data.DataHolder;
 import model.Worker;
 import utilities.menu.ShowHomeScreenUtils;
 
@@ -10,6 +11,7 @@ import java.util.Scanner;
 public class CreateWorkerUtils {
 
     public static void addNewWorker() {
+        List<Worker> workers = DataHolder.getInstance().getWorkers();
         Scanner scanner = new Scanner(System.in);
         String inputName;
         String inputSurname;

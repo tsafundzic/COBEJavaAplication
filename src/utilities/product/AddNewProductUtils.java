@@ -2,10 +2,8 @@ package utilities.product;
 
 import data.DataHolder;
 import model.Product;
-import model.Worker;
 import utilities.worker.WorkerFirstChooserUtils;
 
-import javax.xml.crypto.Data;
 import java.util.List;
 import java.util.Scanner;
 
@@ -15,8 +13,6 @@ public class AddNewProductUtils {
         Scanner scanner = new Scanner(System.in);
         String productName;
         List<Product> products = DataHolder.getInstance().getProducts();
-
-
         double inputPrice = 0;
 
         int max = DataHolder.getInstance().getProducts().size();
