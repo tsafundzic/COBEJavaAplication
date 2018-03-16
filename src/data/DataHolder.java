@@ -43,8 +43,11 @@ public class DataHolder {
     public void removeProduct(Product product) {
         products.remove(product);
     }
+    public void addProduct(Product product){
+        products.add(product);
+    }
 
-    public int getProductsSize() {
-        return products.size();
+    public void addNewWorker(Worker newWorker) {
+        workers.add(newWorker);
     }
 }

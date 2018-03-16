@@ -11,10 +11,10 @@ import java.util.Scanner;
 public class CustomerLoginUtils {
 
     public static void customerLogin() {
-        List<Customer> customers = DataHolder.getInstance().getCustomers();
-        String inputData;
         int inputValue;
         int numberOfTry = 0;
+        String inputData;
+        List<Customer> customers = DataHolder.getInstance().getCustomers();
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Unesi svoj ID:");

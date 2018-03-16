@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class BuyProductUtils {
 
-    static List<ProductAmount> productAmounts = new ArrayList<>();
+    private static List<ProductAmount> productAmounts = new ArrayList<>();
 
     public static void buyProduct(Product product, Customer customer) {
         Scanner scanner = new Scanner(System.in);
@@ -36,7 +36,6 @@ public class BuyProductUtils {
         if (inputValue == 1) {
             PrintUtils.showAvailableProducts(customer);
         } else if (inputValue == 2) {
-            customer.setBalance(customerBalance);
             for (ProductAmount productAmount : productAmounts) {
                 System.out.println(String.format("%s \t %d \t %.2f", productAmount.getProductName(), productAmount.getAmount(), productAmount.getAmount() * productAmount.getProductPrice()));
                 double productPrice = productAmount.getProductPrice() * productAmount.getAmount();

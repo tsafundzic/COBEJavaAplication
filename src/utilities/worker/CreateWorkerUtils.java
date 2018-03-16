@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class CreateWorkerUtils {
 
-    public static void addNewWorker() {
+    public static Worker createNewWorker() {
         List<Worker> workers = DataHolder.getInstance().getWorkers();
         Scanner scanner = new Scanner(System.in);
         String inputName;
@@ -38,9 +38,9 @@ public class CreateWorkerUtils {
         inputSalary = scanner.nextDouble();
 
         Worker worker = new Worker(workerID, inputName, inputSurname, inputPassword, inputSalary);
-        workers.add(worker);
 
         System.out.println(String.format("Dodan je novi radnik: \n\tID: %d \n\tIme: %s \n\tPrezime: %s \n\tLozinka: %s \n\tPlaća: %.2f", worker.getId(), worker.getName(), worker.getSurname(), worker.getPassword(), worker.getSalary()));
-        ShowHomeScreenUtils.showHomeScreen();
+
+        return worker;
     }
 }

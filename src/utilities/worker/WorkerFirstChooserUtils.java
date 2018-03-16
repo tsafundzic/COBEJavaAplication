@@ -1,5 +1,8 @@
 package utilities.worker;
 
+import data.DataHolder;
+import model.Worker;
+import utilities.customer.CreateCustomerUtils;
 import utilities.menu.MenuSelectorUtils;
 import utilities.menu.ShowHomeScreenUtils;
 import utilities.product.AddNewProductUtils;
@@ -15,13 +18,16 @@ public class WorkerFirstChooserUtils {
                 ShowHomeScreenUtils.showHomeScreen();
                 break;
             case 2:
-                AddNewProductUtils.addNewProduct();
+                DataHolder.getInstance().addProduct(AddNewProductUtils.addNewProduct());
+                WorkerFirstChooserUtils.workerFirstChooser();
                 break;
             case 3:
-                DeleteProductUtils.deleteProduct();
+                DataHolder.getInstance().removeProduct(DeleteProductUtils.deleteProduct());
+                WorkerFirstChooserUtils.workerFirstChooser();
                 break;
             case 4:
-                CreateWorkerUtils.addNewWorker(); //todo return the new worker and add it to the data holder
+                DataHolder.getInstance().addNewWorker(CreateWorkerUtils.createNewWorker());
+                ShowHomeScreenUtils.showHomeScreen();
                 break;
             default:
                 System.out.println("Pogrešan unos");

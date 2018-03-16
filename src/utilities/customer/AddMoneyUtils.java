@@ -5,13 +5,15 @@ import model.Customer;
 import java.util.Scanner;
 
 public class AddMoneyUtils {
-    public static void addMoney(Customer customer) {
 
+    public static void addMoney(Customer customer) {
         double availableBalance = customer.getBalance();
-        Scanner scanner = new Scanner(System.in);
         double inputValue;
 
+        Scanner scanner = new Scanner(System.in);
+
         System.out.println("Unesi iznos koji uplaćuješ: ");
+
         while (!scanner.hasNextDouble()) {
             System.out.println("Pogrešan unos!");
             scanner.next();

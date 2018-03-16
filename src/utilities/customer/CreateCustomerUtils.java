@@ -11,7 +11,6 @@ import java.util.Scanner;
 public class CreateCustomerUtils {
 
     public static Customer createNewCustomer() {
-        List<Customer> customers = DataHolder.getInstance().getCustomers();
         Scanner scanner = new Scanner(System.in);
         String inputName;
         String inputSurname;
@@ -30,10 +29,8 @@ public class CreateCustomerUtils {
         inputPassword = scanner.nextLine();
 
         Customer customer = new Customer(customerID, inputName, inputSurname, inputPassword, 0);
-        customers.add(customer);
 
-        System.out.println(String.format("Dodan je novi korisnik: \n\tID: %d \n\tIme: %s \n\tPrezime: %s \n\tLozinka: %s \n\tStanje računa: %.2f\n", customer.getId(), customer.getName(), customer.getSurname(), customer.getPassword(), customer.getBalance()));
-        ShowHomeScreenUtils.showHomeScreen();
+        System.out.println(String.format("Dodan je novi korisnik: \n\t  %s\n", customer));
 
         return customer;
     }

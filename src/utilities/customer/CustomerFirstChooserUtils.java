@@ -10,6 +10,7 @@ public class CustomerFirstChooserUtils {
     public static void customerFirstChooser(Customer customer) {
         System.out.println("Odaberi: \n 1. Povratak na početni zaslon \n 2. Provjera stanja računa \n 3. Uplata na račun \n 4. Kupnja proizovda");
         int inputValue = MenuSelectorUtils.menuSelector(4);
+
         switch (inputValue) {
             case 1:
                 ShowHomeScreenUtils.showHomeScreen();

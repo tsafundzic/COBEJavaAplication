@@ -1,5 +1,7 @@
 package utilities.menu;
 
+import data.DataHolder;
+import model.Customer;
 import utilities.customer.CreateCustomerUtils;
 import utilities.customer.CustomerLoginUtils;
 import utilities.worker.WorkerLoginUtils;
@@ -16,7 +18,9 @@ public class ShowHomeScreenUtils {
                 CustomerLoginUtils.customerLogin();
                 break;
             case 2:
-                CreateCustomerUtils.createNewCustomer();
+                Customer customer = CreateCustomerUtils.createNewCustomer();
+                DataHolder.getInstance().addNewCustomer(customer);
+                ShowHomeScreenUtils.showHomeScreen();
                 break;
             case 3:
                 WorkerLoginUtils.workerLogin();

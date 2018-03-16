@@ -1,10 +1,10 @@
 package model;
 
 public class Person {
-    private final int id;
-    private final String name;
-    private final String surname;
-    private String password;
+    protected final int id;
+    protected final String name;
+    protected final String surname;
+    protected String password;
 
     public Person(int id, String name, String surname, String password) {
         this.id = id;

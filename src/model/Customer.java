@@ -15,4 +15,9 @@ public class Customer extends Person {
     public void setBalance(double balance) {
         this.balance = balance;
     }
+
+    @Override
+    public String toString() {
+        return String.format("ID: %d \n\tIme: %s \n\tPrezime: %s \n\tLozinka: %s \n\tStanje računa: %.2f", id, name, surname, password, balance);
+    }
 }

@@ -6,9 +6,8 @@ import java.util.Scanner;
 public class MenuSelectorUtils {
 
     public static int menuSelector(int numberOfItems) {
-
         Scanner scanner = new Scanner(System.in);
-        int inputValue; //todo sve prodji sunce ti jebem
+        int inputValue;
         int numberOfTry = 0;
 
         do {
